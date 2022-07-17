@@ -4,27 +4,39 @@ public class UC2 {
     public static void main(String[] args) {
 
         System.out.println("Welcome To TicTacToe Game!!! ");
-        char[][] board = new char[10][10];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = '-';
-                drawBoard(board);
-
-                player();
+        //char[][] board = new char[10][10];
+        //for (int i = 0; i < 3; i++) {
+        //  for (int j = 0; j < 3; j++) {
+        char[][] board = {{' ', '|', ' ', '|', ' '},
+                {'-', '+', '-', '+', '-'},
+                {' ', '|', ' ', '|', ' '},
+                {'-', '+', '-', '+', '-'},
+                {' ', '|', ' ', '|', ' '}};
+        for (char[] row : board) {
+            for (char c : row) {
+                System.out.println(c);
             }
+            System.out.println();
         }
+        //drawBoard(board);
     }
+                //player();
+
+
+
 
     public static void drawBoard(char[][] board) {
 
         System.out.println("Board:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(board[i][j]);
-            }
-            System.out.println();
-        }
+
     }
+            //    for (int i = 0; i < 3; i++) {
+            //      for (int j = 0; j < 3; j++) {
+            //        System.out.print(board[i][j]);
+            //  }
+            //System.out.println();
+
+
 
     private static void player() {
 
