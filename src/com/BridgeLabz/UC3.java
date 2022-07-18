@@ -1,18 +1,69 @@
 package com.BridgeLabz;
-
+import java.util.Scanner;
+import java.util.Random;
 public class UC3 {
-public static void main (String [] args){
-showBoard();
-}
-public static void showBoard(){
-    char[][] board ={{'1','2','3'},
-                       {'4','5','6'},
-                         {'7','8','9'}};
-    System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2] );
-    System.out.println("-+-+-");
-    System.out.println(board[1][0] + "|" + board[1][1] + "|" + board[1][2] );
-    System.out.println("-+-+-");
-    System.out.println(board[2][0] + "|" + board[2][1] + "|" + board[2][2] );
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char[][] board = {{' ', ' ', ' '},
+                {' ', ' ', ' '},
+                {' ', ' ', ' '}};
+
+        printBoard(board);
+
+        while (true) {
+            playerTurn(board, scanner);
+        }
+    }
+
+    private static boolean isValidMove(char[][] board, String position) {
+        switch (position) {
+            case "1":
+                return (board[0][0] == ' ');
+            case "2":
+                return (board[0][1] == ' ');
+            case "3":
+                return (board[0][2] == ' ');
+            case "4":
+                return (board[1][0] == ' ');
+            case "5":
+                return (board[1][1] == ' ');
+            case "6":
+                return (board[1][2] == ' ');
+            case "7":
+                return (board[2][0] == ' ');
+            case "8":
+                return (board[2][1] == ' ');
+            case "9":
+                return (board[2][2] == ' ');
+            default:
+                return false;
+        }
+    }
+    private static void playerTurn(char[][] board, Scanner scanner) {
+        String userInput;
+        while (true) {
+            System.out.println("Where would you like to play? (1-9)");
+            userInput = scanner.nextLine();
+            if (isValidMove(board, userInput)){
+                break;
+            } else {
+                System.out.println(userInput + " is not a valid move.");
+            }
+        }
+
+    }
+
+    private static void printBoard(char[][] board) {
+        System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2]);
+        System.out.println("-+-+-");
+        System.out.println(board[1][0] + "|" + board[1][1] + "|" + board[1][2]);
+        System.out.println("-+-+-");
+        System.out.println(board[2][0] + "|" + board[2][1] + "|" + board[2][2]);
+    }
 
 }
-}
+
+
+
+
+
