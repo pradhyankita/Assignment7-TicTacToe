@@ -12,6 +12,41 @@ public class UC3 {
 
         while (true) {
             playerTurn(board, scanner);
+            printBoard(board);
+        }
+
+    }
+    private static void placeMove(char[][] board, String position, char symbol) {
+        switch(position) {
+            case "1":
+                board[0][0] = symbol;
+                break;
+            case "2":
+                board[0][1] = symbol;
+                break;
+            case "3":
+                board[0][2] = symbol;
+                break;
+            case "4":
+                board[1][0] = symbol;
+                break;
+            case "5":
+                board[1][1] = symbol;
+                break;
+            case "6":
+                board[1][2] = symbol;
+                break;
+            case "7":
+                board[2][0] = symbol;
+                break;
+            case "8":
+                board[2][1] = symbol;
+                break;
+            case "9":
+                board[2][2] = symbol;
+                break;
+            default:
+                System.out.println(":(");
         }
     }
 
@@ -50,7 +85,7 @@ public class UC3 {
                 System.out.println(userInput + " is not a valid move.");
             }
         }
-
+        placeMove(board, userInput, 'X');
     }
 
     private static void printBoard(char[][] board) {
@@ -62,8 +97,5 @@ public class UC3 {
     }
 
 }
-
-
-
 
 
